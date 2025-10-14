@@ -99,7 +99,7 @@ class GPSMockLocationService: Service() {
 //        }
 
         Thread {
-            var pt = 0
+            var pt = Data.currentPoint
 //            while (true) {
                 while (pt < Data.numOfPoints) {
                     if (Data.seekBarMoved) {
@@ -125,11 +125,6 @@ class GPSMockLocationService: Service() {
             //Data.numOfPoints = 0
             stopSelf()
             Data.mockGPSServiceLaunched = false
-            val notification = TrackPlayServiceNotification().getNotification(
-                "MockGPS has ended",
-                applicationContext
-            )
-            startForeground(2, notification)    //Start foreground with notification.
 //                }
         }.start()
 

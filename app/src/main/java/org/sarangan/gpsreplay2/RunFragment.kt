@@ -154,6 +154,19 @@ class RunFragment : Fragment() {
 //            }
 //        }
 
+        fun launchMockGPSService() {
+
+            val intentService = Intent(context,GPSMockLocationService::class.java)
+            Log.d(TAG,"Run - Starting Foreground Service")
+            startForegroundService(context, intentService)
+            //Intent(requireContext(), GPSMockLocationService::class.java).also { intent ->
+            //    requireActivity().bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
+            //}
+            Data.mockGPSServiceLaunched = true
+
+
+        }
+
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
@@ -161,12 +174,15 @@ class RunFragment : Fragment() {
                 if (p2) {
                     Data.seekBarPoint = p1
                     Data.seekBarMoved = true
+                    if (!Data.mockGPSServiceLaunched) {
+                        launchMockGPSService()
+                    }
+                    //seekBar.progress = p1
                     sleep(100)  //Sleep for 100ms to allow the GPSMockLocationService thread to use the seekPoint and update currentPoint
-                }
-                else{
+                } else {
                     seekBar.progress = Data.currentPoint
                 }
-                    updateTrackPlotPosition()
+                updateTrackPlotPosition()
             }
 
 
@@ -203,14 +219,10 @@ class RunFragment : Fragment() {
 
         trackPlot()
 
+
+
         if ((!Data.mockGPSServiceLaunched)&&(Data.numOfPoints > 1)) {
-            val intentService = Intent(context,GPSMockLocationService::class.java)
-            Log.d(TAG,"Run - Starting Foreground Service")
-            startForegroundService(context, intentService)
-            //Intent(requireContext(), GPSMockLocationService::class.java).also { intent ->
-            //    requireActivity().bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
-            //}
-            Data.mockGPSServiceLaunched = true
+            launchMockGPSService()
         }
 
         Thread {
@@ -221,7 +233,7 @@ class RunFragment : Fragment() {
 //                seekBar.progress++
 //                //Log.d(TAG, "Sleep $timeDiff")
                 Thread.sleep(100)
- //               Log.d(TAG,myBoundService.doSomethingUseful())
+                //               Log.d(TAG,myBoundService.doSomethingUseful())
             }
         }.start()
 

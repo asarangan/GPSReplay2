@@ -10,7 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 const val TAG:String = "GPS"
-const val GPSUpdate_ms:Long = 50 //MockGPS will update every 50 ms
+//const val GPSUpdate_ms:Long = 50 //MockGPS will update every 50 ms
 
 //Description of this program:
 //The main screen layout contains two FrameLayouts. The top one occupies 80% of the area. Bottom one occupies 20%. The navigation menu is on the bottom.
@@ -116,9 +116,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        Log.d(TAG,"MainActivity onRStop - start")
+        Log.d(TAG,"MainActivity onStop - start")
         super.onStop()
-        Log.d(TAG,"MainActivity onRStop - exit")
+        Log.d(TAG,"MainActivity onStop - exit")
     }
 
     override fun onPause() {
@@ -132,4 +132,12 @@ class MainActivity : AppCompatActivity() {
         super.onRestart()
         Log.d(TAG,"MainActivity onRestart - exit")
     }
+
+    override fun onDestroy() {
+        Log.d(TAG,"MainActivity onDestroy - start")
+        super.onDestroy()
+        Data.stopService = true
+        Log.d(TAG,"MainActivity onDestroy - exit")
+    }
+
 }

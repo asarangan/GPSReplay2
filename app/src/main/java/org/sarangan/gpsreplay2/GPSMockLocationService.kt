@@ -101,7 +101,7 @@ class GPSMockLocationService: Service() {
         Thread {
             var pt = Data.currentPoint
 //            while (true) {
-                while (pt < Data.numOfPoints) {
+                while (pt < Data.numOfPoints-1) {
                     if (Data.seekBarMoved) {
                         pt = Data.seekBarPoint
                         Data.seekBarMoved = false
@@ -112,15 +112,18 @@ class GPSMockLocationService: Service() {
                     mockLocation.setAltitude(Data.trackPoints[pt].altitude)
                     mockLocation.setSpeed(Data.trackPoints[pt].speed)
                     mockLocation.setBearing(Data.trackPoints[pt].trueCourse)
-                    mockLocation.time = System.currentTimeMillis()
-                    //mockLocation.setTime(Data.trackPoints[pt].epoch + Data.timeOffset)
+                    //mockLocation.time = System.currentTimeMillis()
+                    mockLocation.time = Data.trackPoints[pt].epoch + Data.timeOffset
+                    val sleepTime = Data.trackPoints[pt+1].epoch - Data.trackPoints[pt].epoch
                     locationManager.setTestProviderLocation(
                         LocationManager.GPS_PROVIDER,
                         mockLocation
                     )
-                    Thread.sleep(GPSUpdate_ms)
+                    Thread.sleep(sleepTime)
                     pt++
                         //Log.d(TAG, "GPSMockLocationService is Running")
+
+                    if (Data.stopService){break}
                     }
             //Data.numOfPoints = 0
             stopSelf()

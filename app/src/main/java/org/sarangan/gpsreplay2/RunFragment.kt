@@ -163,7 +163,7 @@ class RunFragment : Fragment() {
             //    requireActivity().bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
             //}
             Data.mockGPSServiceLaunched = true
-
+            Data.timeOffset = System.currentTimeMillis() - Date(Data.trackPoints[Data.currentPoint].epoch).time
 
         }
 

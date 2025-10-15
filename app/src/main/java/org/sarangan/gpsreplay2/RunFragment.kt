@@ -158,12 +158,13 @@ class RunFragment : Fragment() {
 
             val intentService = Intent(context,GPSMockLocationService::class.java)
             Log.d(TAG,"Run - Starting Foreground Service")
+            Data.timeOffset = System.currentTimeMillis() - Date(Data.trackPoints[Data.currentPoint].epoch).time
             startForegroundService(context, intentService)
             //Intent(requireContext(), GPSMockLocationService::class.java).also { intent ->
             //    requireActivity().bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
             //}
             Data.mockGPSServiceLaunched = true
-            Data.timeOffset = System.currentTimeMillis() - Date(Data.trackPoints[Data.currentPoint].epoch).time
+
 
         }
 

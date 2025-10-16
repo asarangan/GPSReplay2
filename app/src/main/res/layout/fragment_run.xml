@@ -33,7 +33,7 @@
                 android:id="@+id/textView3A"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginLeft="25dp"
                 android:text="Altitude:"
                 android:textAlignment="textEnd"
                 android:textSize="18sp"

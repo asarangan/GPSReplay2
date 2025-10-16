@@ -133,6 +133,7 @@ class GPSMockLocationService: Service() {
                     }
             //Data.numOfPoints = 0
             stopSelf()
+            locationManager.removeTestProvider(LocationManager.GPS_PROVIDER)
             Data.mockGPSServiceLaunched = false
 //                }
         }.start()

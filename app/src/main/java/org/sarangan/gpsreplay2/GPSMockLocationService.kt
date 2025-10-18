@@ -49,11 +49,16 @@ class GPSMockLocationService: Service() {
         Log.d(TAG, "GPSMockLocationService onCreate exit")
     }
 
+    override fun onDestroy() {
+        Log.d(TAG, "GPSMockLocationService onDestroy start")
+        super.onDestroy()
+        Log.d(TAG, "GPSMockLocationService onDestroy exit")
+    }
+
 
     private fun initGPS() {
         Log.d(TAG, "GPSMockLocationService initGPS")
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
-        mockLocation = Location(LocationManager.GPS_PROVIDER)
         locationManager.addTestProvider(
             LocationManager.GPS_PROVIDER,
             false,
@@ -67,7 +72,11 @@ class GPSMockLocationService: Service() {
             ProviderProperties.ACCURACY_FINE
         )
         locationManager.setTestProviderEnabled(LocationManager.GPS_PROVIDER, true)
-        mockLocation.elapsedRealtimeNanos = SystemClock.elapsedRealtimeNanos()
+        mockLocation = Location(LocationManager.GPS_PROVIDER)
+
+        //mockLocation.elapsedRealtimeNanos = System.nanoTime()
+
+
         //mockLocation.elapsedRealtimeNanos = System.nanoTime()
         mockLocation.setAccuracy(5.0F)
     }
@@ -114,10 +123,12 @@ class GPSMockLocationService: Service() {
                     mockLocation.setBearing(Data.trackPoints[pt].trueCourse)
                     //mockLocation.time = System.currentTimeMillis()
                     mockLocation.time = Data.trackPoints[pt].epoch + Data.timeOffset
+                    mockLocation.elapsedRealtimeNanos = SystemClock.elapsedRealtimeNanos()
+
                     val sleepTime = Data.trackPoints[pt+1].epoch - Data.trackPoints[pt].epoch
                     Log.d(TAG,pt.toString())
 
-                    locationManager.setTestProviderEnabled(LocationManager.GPS_PROVIDER, true)
+                    //locationManager.setTestProviderEnabled(LocationManager.GPS_PROVIDER, true)
                     locationManager.setTestProviderLocation(LocationManager.GPS_PROVIDER, mockLocation)
 
 

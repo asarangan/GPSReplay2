@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
+import android.os.SystemClock
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -159,6 +160,7 @@ class RunFragment : Fragment() {
             val intentService = Intent(context,GPSMockLocationService::class.java)
             Log.d(TAG,"Run - Starting Foreground Service")
             Data.timeOffset = System.currentTimeMillis() - Date(Data.trackPoints[Data.currentPoint].epoch).time
+            //Data.timeNano = SystemClock.elapsedRealtimeNanos()
             startForegroundService(context, intentService)
             //Intent(requireContext(), GPSMockLocationService::class.java).also { intent ->
             //    requireActivity().bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
@@ -233,7 +235,7 @@ class RunFragment : Fragment() {
 //                val timeDiff = Data.trackPoints[pt + 1].epoch - Data.trackPoints[pt].epoch
 //                seekBar.progress++
 //                //Log.d(TAG, "Sleep $timeDiff")
-                Thread.sleep(100)
+                Thread.sleep(1000)
                 //               Log.d(TAG,myBoundService.doSomethingUseful())
             }
         }.start()

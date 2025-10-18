@@ -10,6 +10,7 @@ object Data {
     var numOfPoints: Int = 0
     val trackPoints: MutableList<TrackPoint> = mutableListOf()
     var timeOffset: Long = 0
+    //var timeNano: Long = 0
     //var mockGPSEnabled: Boolean = true
     //var trackPlayServiceIsRunning = false
     var mockGPSServiceLaunched = false

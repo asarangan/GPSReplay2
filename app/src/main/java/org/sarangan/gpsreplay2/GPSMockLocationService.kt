@@ -86,34 +86,22 @@ class GPSMockLocationService: Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.d(TAG, "GPSMockLocationService onStartCommand")
 
-        //val gpsUpdateInterval: Long = 100 //Update every 100ms
-        //var ticks: Int   //This is the counter to indicate how many 100ms intervals have lapsed between each GPS data
-
- //       try{
             initGPS()
             val notification = TrackPlayServiceNotification().getNotification(
                 "MockGPS is Running",
                 applicationContext
             )
             startForeground(1, notification)    //Start foreground with notification.
-            //Log.d(TAG, "GPSMockLocationService has been started")
-//        }
-//        catch (e: SecurityException){//if initGPS crashes because mock GPS has not been enabled, disable play and enable mockGPSEnabled.
-//            val notification = TrackPlayServiceNotification().getNotification(
-//                "Mock GPS is not enabled",
-//                applicationContext
-//            )
-//            startForeground(1, notification)
-//            Log.d(TAG, "Track Play Service Security Exception")
-//        }
+
 
         Thread {
             var pt = Data.currentPoint
-//            while (true) {
                 while (pt < Data.numOfPoints-1) {
                     if (Data.seekBarMoved) {
                         pt = Data.seekBarPoint
                         Data.seekBarMoved = false
+                        Data.trackStartTime = Data.trackPoints[pt].epoch
+                        Data.serviceStartTime = System.currentTimeMillis()
                     }
                     Data.currentPoint = pt
                     mockLocation.latitude = Data.trackPoints[pt].lat
@@ -121,32 +109,28 @@ class GPSMockLocationService: Service() {
                     mockLocation.setAltitude(Data.trackPoints[pt].altitude)
                     mockLocation.setSpeed(Data.trackPoints[pt].speed)
                     mockLocation.setBearing(Data.trackPoints[pt].trueCourse)
-                    //mockLocation.time = System.currentTimeMillis()
-                    mockLocation.time = Data.trackPoints[pt].epoch + Data.timeOffset
+                    mockLocation.time = System.currentTimeMillis()
                     mockLocation.elapsedRealtimeNanos = SystemClock.elapsedRealtimeNanos()
 
-                    val sleepTime = Data.trackPoints[pt+1].epoch - Data.trackPoints[pt].epoch
-                    Log.d(TAG,pt.toString())
 
-                    //locationManager.setTestProviderEnabled(LocationManager.GPS_PROVIDER, true)
+                    val correction = (mockLocation.time - Data.serviceStartTime) - (Data.trackPoints[pt].epoch- Data.trackStartTime)
+                    var sleepTime =  (Data.trackPoints[pt+1].epoch - Data.trackPoints[pt].epoch) - correction
+                    if (sleepTime < 0){sleepTime = 0}
+
+
+                    Log.d(TAG,"MockGPS Service: ${pt.toString()}. Sleep: ${sleepTime}. Correction: ${correction}")
+
                     locationManager.setTestProviderLocation(LocationManager.GPS_PROVIDER, mockLocation)
 
-
-//                    locationManager.setTestProviderLocation(
-//                        LocationManager.GPS_PROVIDER,
-//                        mockLocation
-//                    )
                     Thread.sleep(sleepTime)
                     pt++
-                        //Log.d(TAG, "GPSMockLocationService is Running")
 
+                    Data.mockGPSServiceIsRunning = true
                     if (Data.stopService){break}
                     }
-            //Data.numOfPoints = 0
             stopSelf()
             locationManager.removeTestProvider(LocationManager.GPS_PROVIDER)
-            Data.mockGPSServiceLaunched = false
-//                }
+            Data.mockGPSServiceIsRunning = false
         }.start()
 
         return super.onStartCommand(intent, flags, startId)

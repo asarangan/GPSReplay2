@@ -4,16 +4,16 @@ import kotlin.math.PI
 
 object Data {
     //var play: Boolean = false
-    var currentPoint: Int = 0
-    var seekBarPoint: Int = 0
+    var currentPoint = 0
+    var seekBarPoint = 0
     var seekBarMoved = false
-    var numOfPoints: Int = 0
+    var numOfPoints = 0
     val trackPoints: MutableList<TrackPoint> = mutableListOf()
-    var timeOffset: Long = 0
-    //var timeNano: Long = 0
-    //var mockGPSEnabled: Boolean = true
-    //var trackPlayServiceIsRunning = false
-    var mockGPSServiceLaunched = false
+
+    var serviceStartTime: Long = 0
+    var trackStartTime:Long = 0
+
+    var mockGPSServiceIsRunning = false
 
     var stopService = false
 
@@ -27,6 +27,7 @@ object Data {
         var trueCourse: Float = 0.0F
 
     }
+
 }
         fun Float.toKts(): Float {
             return ((this * 19.4384).toInt() / 10.0).toFloat()

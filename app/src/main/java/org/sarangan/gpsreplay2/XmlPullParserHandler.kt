@@ -43,6 +43,7 @@ class XmlPullParserHandler {
             var trackPoint = Data.TrackPoint()
 
             //This is the main loop. Keep reading until end of the document
+            Data.trackPoints.clear() //If we are calling this parser a second time, we need to clear the array.
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 //Read the current tag name
                 val tagName: String? = parser.name

@@ -11,10 +11,9 @@ import java.util.Locale
 import kotlin.math.*
 
 class XmlPullParserHandler {
-    //Declare array of track points
 
-
-    //Return code to indicate whether conversion was successful
+    //The XML is read into the Data object, which is declared globally.
+    //Return code indicates whether conversion was successful
     var returnCode: Int = 0
 
     //This is the parser that processes the string that was read from the file

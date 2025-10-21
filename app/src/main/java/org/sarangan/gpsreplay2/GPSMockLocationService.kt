@@ -25,21 +25,13 @@ class GPSMockLocationService: Service() {
 
 
     inner class MyServiceBinder : Binder() {
-        fun getService(): GPSMockLocationService = this@GPSMockLocationService
     }
 
     private val myBinder = MyServiceBinder()
-
-
     override fun onBind(intent: Intent?): IBinder? {
         //TODO("Not yet implemented")
         return myBinder
     }
-
-    fun doSomethingUseful(): String {
-        return "Service is doing something useful!"
-    }
-
 
 
 
@@ -73,14 +65,8 @@ class GPSMockLocationService: Service() {
         )
         locationManager.setTestProviderEnabled(LocationManager.GPS_PROVIDER, true)
         mockLocation = Location(LocationManager.GPS_PROVIDER)
-
-        //mockLocation.elapsedRealtimeNanos = System.nanoTime()
-
-
-        //mockLocation.elapsedRealtimeNanos = System.nanoTime()
         mockLocation.setAccuracy(5.0F)
     }
-
 
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -113,10 +99,11 @@ class GPSMockLocationService: Service() {
                     mockLocation.elapsedRealtimeNanos = SystemClock.elapsedRealtimeNanos()
 
 
+                    //Because we are using sleep between data points, that may not match with the exact elapsed clock time because there is always some overhead due to code execution.
+                    //Actual time will be longer than the sleep time, so we make a small correction on each data point.
                     val correction = (mockLocation.time - Data.serviceStartTime) - (Data.trackPoints[pt].epoch- Data.trackStartTime)
                     var sleepTime =  (Data.trackPoints[pt+1].epoch - Data.trackPoints[pt].epoch) - correction
                     if (sleepTime < 0){sleepTime = 0}
-
 
                     Log.d(TAG,"MockGPS Service: ${pt.toString()}. Sleep: ${sleepTime}. Correction: ${correction}")
 
@@ -128,6 +115,7 @@ class GPSMockLocationService: Service() {
                     Data.mockGPSServiceIsRunning = true
                     if (Data.stopService){break}
                     }
+            //The following lines are important to make sure that the mockGPS service is properly terminated to allow the system to work normally after program exits.
             locationManager.setTestProviderEnabled(LocationManager.GPS_PROVIDER, false)
             locationManager.removeTestProvider(LocationManager.GPS_PROVIDER)
             stopSelf()
@@ -139,10 +127,8 @@ class GPSMockLocationService: Service() {
 }
 
 class TrackPlayServiceNotification() {
-
     private val channelID = "SERVICESTACK_CHANNEL_ID"
     private val channelName = "SERVICESTACK_CHANNEL_NAME"
-
 
 
     fun getNotification(message:String, trackPlayContext: Context): Notification {

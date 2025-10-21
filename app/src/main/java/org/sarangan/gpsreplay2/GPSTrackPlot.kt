@@ -5,8 +5,6 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 
-
-
 class GPSTrackPlot {
 
     class GPSTrackPlot : View {
@@ -119,11 +117,10 @@ class GPSTrackPlot {
                 makeBitmap()
                 circleRadius =
                     height / 100F  //This has to be set here because height and width become valid only in onDraw
-                canvas?.drawBitmap(bitmapObject, 0F, 0F, null)
+                canvas.drawBitmap(bitmapObject, 0F, 0F, null)
             }
 
             val myPixel: Pixel = toPixel(xDataPoints[circlePoint], yDataPoints[circlePoint])
-            //Log.d(TAG, "X=${myPixel.x}, y=${myPixel.y}")
             canvas.drawCircle(myPixel.x, myPixel.y, circleRadius, circlePaint)
         }
     }

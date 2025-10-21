@@ -128,8 +128,9 @@ class GPSMockLocationService: Service() {
                     Data.mockGPSServiceIsRunning = true
                     if (Data.stopService){break}
                     }
-            stopSelf()
+            locationManager.setTestProviderEnabled(LocationManager.GPS_PROVIDER, false)
             locationManager.removeTestProvider(LocationManager.GPS_PROVIDER)
+            stopSelf()
             Data.mockGPSServiceIsRunning = false
         }.start()
 

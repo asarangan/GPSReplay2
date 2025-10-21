@@ -70,7 +70,7 @@ class XmlPullParserHandler {
                     when {
                         //If tag name is ele, then that is the altitude.
                         tagName.equals("ele", ignoreCase = true) -> trackPoint.altitude =
-                            text.toDouble()
+                            text.toFloat()
                         //If tag name is speed, then that is the speed in m/s
                         tagName.equals("speed", ignoreCase = true) -> trackPoint.speed =
                             text.toFloat()

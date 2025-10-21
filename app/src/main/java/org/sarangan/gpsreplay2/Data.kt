@@ -3,7 +3,6 @@ package org.sarangan.gpsreplay2
 import kotlin.math.PI
 
 object Data {
-    //var play: Boolean = false
     var currentPoint = 0
     var seekBarPoint = 0
     var seekBarMoved = false
@@ -23,7 +22,7 @@ object Data {
         var lat: Double = 0.0
         var lon: Double = 0.0
         var speed: Float = 0.0F
-        var altitude: Double = 0.0
+        var altitude: Float = 0.0F
         var trueCourse: Float = 0.0F
 
     }
@@ -49,7 +48,7 @@ object Data {
             return (this / PI * 180.0)
         }
 
-        fun Double.toFt(): Double {
+        fun Float.toFt(): Double {
             return (this * 32.8084).toInt() / 10.0
         }
 

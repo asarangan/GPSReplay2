@@ -92,7 +92,7 @@ class GPSMockLocationService: Service() {
                     Data.currentPoint = pt
                     mockLocation.latitude = Data.trackPoints[pt].lat
                     mockLocation.longitude = Data.trackPoints[pt].lon
-                    mockLocation.setAltitude(Data.trackPoints[pt].altitude)
+                    mockLocation.setAltitude(Data.trackPoints[pt].altitude.toDouble())
                     mockLocation.setSpeed(Data.trackPoints[pt].speed)
                     mockLocation.setBearing(Data.trackPoints[pt].trueCourse)
                     mockLocation.time = System.currentTimeMillis()

@@ -1,0 +1,172 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="org.sarangan.gpsreplay2"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="36" />
+10
+11    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+11-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:4:5-76
+11-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:4:22-74
+12    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+12-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:5:5-88
+12-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:5:22-86
+13    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+13-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:6:5-76
+13-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:6:22-74
+14    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+14-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:7:5-78
+14-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:7:22-76
+15
+16    <permission
+16-->[androidx.core:core:1.17.0] C:\Users\asara\.gradle\caches\8.13\transforms\10bad1acf89967c507ecc139222ceaf0\transformed\core-1.17.0\AndroidManifest.xml:22:5-24:47
+17        android:name="org.sarangan.gpsreplay2.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+17-->[androidx.core:core:1.17.0] C:\Users\asara\.gradle\caches\8.13\transforms\10bad1acf89967c507ecc139222ceaf0\transformed\core-1.17.0\AndroidManifest.xml:23:9-81
+18        android:protectionLevel="signature" />
+18-->[androidx.core:core:1.17.0] C:\Users\asara\.gradle\caches\8.13\transforms\10bad1acf89967c507ecc139222ceaf0\transformed\core-1.17.0\AndroidManifest.xml:24:9-44
+19
+20    <uses-permission android:name="org.sarangan.gpsreplay2.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+20-->[androidx.core:core:1.17.0] C:\Users\asara\.gradle\caches\8.13\transforms\10bad1acf89967c507ecc139222ceaf0\transformed\core-1.17.0\AndroidManifest.xml:26:5-97
+20-->[androidx.core:core:1.17.0] C:\Users\asara\.gradle\caches\8.13\transforms\10bad1acf89967c507ecc139222ceaf0\transformed\core-1.17.0\AndroidManifest.xml:26:22-94
+21
+22    <application
+22-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:10:5-37:19
+23        android:allowBackup="true"
+23-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:11:9-35
+24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+24-->[androidx.core:core:1.17.0] C:\Users\asara\.gradle\caches\8.13\transforms\10bad1acf89967c507ecc139222ceaf0\transformed\core-1.17.0\AndroidManifest.xml:28:18-86
+25        android:dataExtractionRules="@xml/data_extraction_rules"
+25-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:12:9-65
+26        android:debuggable="true"
+27        android:extractNativeLibs="false"
+28        android:fullBackupContent="@xml/backup_rules"
+28-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:13:9-54
+29        android:icon="@mipmap/ic_launcher"
+29-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:14:9-43
+30        android:label="@string/app_name"
+30-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:15:9-41
+31        android:roundIcon="@mipmap/ic_launcher_round"
+31-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:16:9-54
+32        android:supportsRtl="true"
+32-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:17:9-35
+33        android:theme="@style/Theme.GPSReplay2" >
+33-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:18:9-48
+34        <service
+34-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:19:9-24:19
+35            android:name="org.sarangan.gpsreplay2.GPSMockLocationService"
+35-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:20:13-74
+36            android:enabled="true"
+36-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:22:13-35
+37            android:exported="false"
+37-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:23:13-37
+38            android:foregroundServiceType="specialUse" >
+38-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:21:13-55
+39        </service>
+40
+41        <activity
+41-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:26:9-36:20
+42            android:name="org.sarangan.gpsreplay2.MainActivity"
+42-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:27:13-41
+43            android:exported="true"
+43-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:28:13-36
+44            android:label="@string/app_name"
+44-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:29:13-45
+45            android:theme="@style/Theme.GPSReplay2" >
+45-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:30:13-52
+46            <intent-filter>
+46-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:31:13-35:29
+47                <action android:name="android.intent.action.MAIN" />
+47-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:32:17-69
+47-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:32:25-66
+48
+49                <category android:name="android.intent.category.LAUNCHER" />
+49-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:34:17-77
+49-->C:\Users\asara\AndroidStudioProjects\GPSReplay2\app\src\main\AndroidManifest.xml:34:27-74
+50            </intent-filter>
+51        </activity>
+52        <activity
+52-->[androidx.compose.ui:ui-tooling-android:1.9.3] C:\Users\asara\.gradle\caches\8.13\transforms\d0babd14239063feb5ccab6e8bf16986\transformed\ui-tooling\AndroidManifest.xml:23:9-25:39
+53            android:name="androidx.compose.ui.tooling.PreviewActivity"
+53-->[androidx.compose.ui:ui-tooling-android:1.9.3] C:\Users\asara\.gradle\caches\8.13\transforms\d0babd14239063feb5ccab6e8bf16986\transformed\ui-tooling\AndroidManifest.xml:24:13-71
+54            android:exported="true" />
+54-->[androidx.compose.ui:ui-tooling-android:1.9.3] C:\Users\asara\.gradle\caches\8.13\transforms\d0babd14239063feb5ccab6e8bf16986\transformed\ui-tooling\AndroidManifest.xml:25:13-36
+55        <activity
+55-->[androidx.compose.ui:ui-test-manifest:1.9.3] C:\Users\asara\.gradle\caches\8.13\transforms\44e263e97bf04a8931957288737d5baa\transformed\ui-test-manifest-1.9.3\AndroidManifest.xml:23:9-26:79
+56            android:name="androidx.activity.ComponentActivity"
+56-->[androidx.compose.ui:ui-test-manifest:1.9.3] C:\Users\asara\.gradle\caches\8.13\transforms\44e263e97bf04a8931957288737d5baa\transformed\ui-test-manifest-1.9.3\AndroidManifest.xml:24:13-63
+57            android:exported="true"
+57-->[androidx.compose.ui:ui-test-manifest:1.9.3] C:\Users\asara\.gradle\caches\8.13\transforms\44e263e97bf04a8931957288737d5baa\transformed\ui-test-manifest-1.9.3\AndroidManifest.xml:25:13-36
+58            android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+58-->[androidx.compose.ui:ui-test-manifest:1.9.3] C:\Users\asara\.gradle\caches\8.13\transforms\44e263e97bf04a8931957288737d5baa\transformed\ui-test-manifest-1.9.3\AndroidManifest.xml:26:13-76
+59
+60        <provider
+60-->[androidx.emoji2:emoji2:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\ee604fca63fd29c603c63f6a1034b83d\transformed\emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
+61            android:name="androidx.startup.InitializationProvider"
+61-->[androidx.emoji2:emoji2:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\ee604fca63fd29c603c63f6a1034b83d\transformed\emoji2-1.4.0\AndroidManifest.xml:25:13-67
+62            android:authorities="org.sarangan.gpsreplay2.androidx-startup"
+62-->[androidx.emoji2:emoji2:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\ee604fca63fd29c603c63f6a1034b83d\transformed\emoji2-1.4.0\AndroidManifest.xml:26:13-68
+63            android:exported="false" >
+63-->[androidx.emoji2:emoji2:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\ee604fca63fd29c603c63f6a1034b83d\transformed\emoji2-1.4.0\AndroidManifest.xml:27:13-37
+64            <meta-data
+64-->[androidx.emoji2:emoji2:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\ee604fca63fd29c603c63f6a1034b83d\transformed\emoji2-1.4.0\AndroidManifest.xml:29:13-31:52
+65                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+65-->[androidx.emoji2:emoji2:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\ee604fca63fd29c603c63f6a1034b83d\transformed\emoji2-1.4.0\AndroidManifest.xml:30:17-75
+66                android:value="androidx.startup" />
+66-->[androidx.emoji2:emoji2:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\ee604fca63fd29c603c63f6a1034b83d\transformed\emoji2-1.4.0\AndroidManifest.xml:31:17-49
+67            <meta-data
+67-->[androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\asara\.gradle\caches\8.13\transforms\ed1f4dc2c3e94d4c40198c4b24c4aec6\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:29:13-31:52
+68                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+68-->[androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\asara\.gradle\caches\8.13\transforms\ed1f4dc2c3e94d4c40198c4b24c4aec6\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:30:17-78
+69                android:value="androidx.startup" />
+69-->[androidx.lifecycle:lifecycle-process:2.9.4] C:\Users\asara\.gradle\caches\8.13\transforms\ed1f4dc2c3e94d4c40198c4b24c4aec6\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:31:17-49
+70            <meta-data
+70-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+71                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+71-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+72                android:value="androidx.startup" />
+72-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+73        </provider>
+74
+75        <receiver
+75-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+76            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+76-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+77            android:directBootAware="false"
+77-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+78            android:enabled="true"
+78-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+79            android:exported="true"
+79-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+80            android:permission="android.permission.DUMP" >
+80-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+81            <intent-filter>
+81-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+82                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+82-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+82-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+83            </intent-filter>
+84            <intent-filter>
+84-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+85                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+85-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+85-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+86            </intent-filter>
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+88                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+88-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+88-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+89            </intent-filter>
+90            <intent-filter>
+90-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+91                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+91-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+91-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\asara\.gradle\caches\8.13\transforms\8e70e39e9dbc7e7617bbd78d94b2627c\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+92            </intent-filter>
+93        </receiver>
+94    </application>
+95
+96</manifest>

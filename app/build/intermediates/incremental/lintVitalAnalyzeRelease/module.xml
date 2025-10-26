@@ -11,7 +11,6 @@
     compileTarget="android-36"
     neverShrinking="true">
   <lintOptions
-      abortOnError="true"
       absolutePaths="true"
       checkReleaseBuilds="true"
       explainIssues="true"/>

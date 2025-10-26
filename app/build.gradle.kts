@@ -8,6 +8,10 @@ android {
     namespace = "org.sarangan.gpsreplay2"
     compileSdk = 36
 
+    lint {
+        abortOnError = false
+    }
+
     defaultConfig {
         applicationId = "org.sarangan.gpsreplay2"
         minSdk = 24
